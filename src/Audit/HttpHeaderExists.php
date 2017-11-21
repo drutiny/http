@@ -4,7 +4,7 @@ namespace Drutiny\Http\Audit;
 
 use Drutiny\Sandbox\Sandbox;
 
-class HttpHeader extends Http {
+class HttpHeaderExists extends Http {
 
   /**
    *

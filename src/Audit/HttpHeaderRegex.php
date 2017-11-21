@@ -14,7 +14,13 @@ class HttpHeaderRegex extends Http {
     $regex = $sandbox->getParameter('regex');
     $regex = "/$regex/";
     $res = $this->getHttpResponse($sandbox);
-    return preg_match($regex, $res->getHeader($sandbox->getParameter('header')));
+    $header = $sandbox->getParameter('header');
+
+    if (!$res->hasHeader($header)) {
+      return FALSE;
+    }
+    $headers = $res->getHeader($header);
+    return preg_match($regex, $headers[0]);
   }
 }
 

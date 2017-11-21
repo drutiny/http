@@ -13,7 +13,13 @@ class HttpHeaderMatch extends Http {
   {
     $value = $sandbox->getParameter('header_value');
     $res = $this->getHttpResponse($sandbox);
-    return $value == $res->getHeader($sandbox->getParameter('header'));
+    $header = $sandbox->getParameter('header');
+
+    if (!$res->hasHeader($header)) {
+      return FALSE;
+    }
+    $headers = $res->getHeader($header);
+    return $value == $headers[0];
   }
 }
 

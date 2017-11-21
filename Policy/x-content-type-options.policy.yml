@@ -12,7 +12,9 @@ remediation: |
     - If you're using an edge CDN/WAF, consult your provider to see if they support X-Content-Type-Options.
     - Manually manipulate your `.htaccess` file to the X-Content-Type-Options header.
 success: X-Content-Type-Options header set to `nosniff`.
-failure: X-Content-Type-Options is not present or incorrectly set.
+failure: |
+  X-Content-Type-Options is not present or incorrectly set.
+  Ensure X-Content-Type-Options header is set to `nosniff`
 parameters:
   header:
     default: X-Content-Type-Options
