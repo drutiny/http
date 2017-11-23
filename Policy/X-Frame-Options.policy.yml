@@ -2,9 +2,10 @@ title: "HTTP X-Frame-Options"
 class: \Drutiny\Http\Audit\HttpHeaderMatch
 name: HTTP:X-Frame-Options
 description: |
-  X-Frame-Options tells the browser whether you want to allow your site to be
-  framed or not. By preventing a browser from framing your site you can defend
-  against attacks like clickjacking.
+  [X-Frame-Options](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options)
+  tells the browser whether you want to allow your site to be framed or not. By
+  preventing a browser from framing your site you can defend against attacks
+  like clickjacking.
 remediation: |
   There are number of methods to enable X-Frame-Options. The best option
   will depend on what best suits your project implementation:

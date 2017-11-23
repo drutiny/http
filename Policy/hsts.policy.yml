@@ -2,9 +2,9 @@ title: "HTTP HSTS"
 class: \Drutiny\Http\Audit\HttpHeaderExists
 name: HTTP:HSTS
 description: |
-  HTTP Strict Transport Security is an excellent feature to support on your site
-  and strengthens your implementation of TLS by getting the User Agent to
-  enforce the use of HTTPS.
+  [HTTP Strict Transport Security](https://scotthelme.co.uk/hsts-the-missing-link-in-tls/)
+  is an excellent feature to support on your site and strengthens your
+  implementation of TLS by getting the User Agent to enforce the use of HTTPS.
 remediation: |
   There are number of methods to enable HSTS. The best option will depend on what
   best suits your project implementation:

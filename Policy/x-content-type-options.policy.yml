@@ -2,9 +2,10 @@ title: "HTTP X-Content-Type-Options"
 class: \Drutiny\Http\Audit\HttpHeaderMatch
 name: HTTP:X-Content-Type-Options
 description: |
-  X-Content-Type-Options stops a browser from trying to MIME-sniff the content
-  type and forces it to stick with the declared content-type. The only valid
-  value for this header is `X-Content-Type-Options: nosniff`.
+  [X-Content-Type-Options](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options)
+  stops a browser from trying to MIME-sniff the content type and forces it to
+  stick with the declared content-type. The only valid value for this header is
+  `X-Content-Type-Options: nosniff`.
 remediation: |
   There are number of methods to enable X-Content-Type-Options. The best option
   will depend on what best suits your project implementation:

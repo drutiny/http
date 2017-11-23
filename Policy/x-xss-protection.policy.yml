@@ -2,9 +2,9 @@ title: "HTTP X-XSS-Protection"
 class: \Drutiny\Http\Audit\HttpHeaderMatch
 name: HTTP:X-XSS-Protection
 description: |
-  X-XSS-Protection sets the configuration for the cross-site scripting filters
-  built into most browsers. The best configuration is
-  `X-XSS-Protection: 1; mode=block`.
+  [X-XSS-Protection](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection)
+  sets the configuration for the cross-site scripting filters built into most
+  browsers. The best configuration is `X-XSS-Protection: 1; mode=block`.
 remediation: |
   There are number of methods to enable X-XSS-Protection. The best option
   will depend on what best suits your project implementation:

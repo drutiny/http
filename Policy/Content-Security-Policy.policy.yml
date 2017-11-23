@@ -2,9 +2,9 @@ title: "HTTP Content-Security-Policy"
 class: \Drutiny\Http\Audit\HttpHeaderExists
 name: HTTP:Content-Security-Policy
 description: |
-  Content Security Policy is an effective measure to protect your site from XSS
-  attacks. By whitelisting sources of approved content, you can prevent the
-  browser from loading malicious assets.
+  [Content Security Policy](https://scotthelme.co.uk/content-security-policy-an-introduction/)
+  is an effective measure to protect your site from XSS attacks. By whitelisting
+  sources of approved content, you can prevent the browser from loading malicious assets.
 remediation: |
   The recommended approach to adding {{ header }} to Drupal is to
   install [seckit](https://www.drupal.org/project/seckit) module and set the
