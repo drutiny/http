@@ -1,5 +1,5 @@
 title: "HTTP X-Frame-Options"
-class: \Drutiny\Http\Audit\HttpHeaderMatch
+class: \Drutiny\Http\Audit\HttpHeaderExists
 name: HTTP:X-Frame-Options
 description: |
   [X-Frame-Options](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options)
@@ -15,10 +15,8 @@ remediation: |
 success: |
   {{ header }} header set to `{{ header_value }}`.
 failure: |
-  {{ header }} is not present or incorrectly set.
-  Ensure {{ header }} header is set to `{{ header_value }}`
+  {{ header }} is not present.
+  Ensure {{ header }} header is set. [Learn more about X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 parameters:
   header:
     default: X-Frame-Options
-  header_value:
-    default: DENY

@@ -12,7 +12,11 @@ class HttpHeaderExists extends Http {
   public function audit(Sandbox $sandbox)
   {
     $res = $this->getHttpResponse($sandbox);
-    return $res->hasHeader($sandbox->getParameter('header'));
+    if ($has_header = $res->hasHeader($sandbox->getParameter('header'))) {
+        $headers = $res->getHeader($sandbox->getParameter('header'));
+        $sandbox->setParameter('header_value', $headers[0]);
+    }
+    return $has_header;
   }
 }
 
