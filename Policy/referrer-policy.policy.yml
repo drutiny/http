@@ -2,8 +2,8 @@ title: "HTTP Referrer Policy"
 class: \Drutiny\Http\Audit\HttpHeaderExists
 name: HTTP:ReferrerPolicy
 description: |
-  	[Referrer Policy](https://scotthelme.co.uk/a-new-security-header-referrer-policy/)
-    is a header that allows a site to control how much information the browser
+    [Referrer Policy](https://scotthelme.co.uk/a-new-security-header-referrer-policy/) is
+    a header that allows a site to control how much information the browser
     includes with navigations away from a document and should be set by all sites.
 remediation: |
   There are number of methods to enable Referrer-Policy. The best option will depend on what
