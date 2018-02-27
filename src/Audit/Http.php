@@ -13,7 +13,13 @@ abstract class Http extends Audit {
 
   protected function getHttpResponse(Sandbox $sandbox)
   {
-    $url = $sandbox->getParameter('url', $sandbox->getTarget()->uri());
+    $url = $sandbox->getParameter('url', $uri = $sandbox->getTarget()->uri());
+
+    // This allows policies to specify urls that still contain a domain.
+    $url = strtr($url, [
+      ':uri' => $uri,
+    ]);
+
     $method = $sandbox->getParameter('method', 'GET');
     $options = $sandbox->getParameter('options', []);
 
