@@ -3,7 +3,22 @@
 namespace Drutiny\Http\Audit;
 
 use Drutiny\Sandbox\Sandbox;
+use Drutiny\Annotation\Param;
 
+
+/**
+ *
+ * @Param(
+ *  name = "header",
+ *  description = "The HTTP header to check the value of.",
+ *  type = "string"
+ * )
+ * @Param(
+ *  name = "regex",
+ *  description = "A regular expressions to validate the header value against.",
+ *  type = "string"
+ * )
+ */
 class HttpHeaderRegex extends Http {
 
   /**

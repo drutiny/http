@@ -20,7 +20,15 @@ abstract class Http extends Audit {
       ':uri' => $uri,
     ]);
 
+    if ($sandbox->getParameter('force_ssl', FALSE)) {
+      $url = strtr($url, [
+        'http://' => 'https://',
+      ]);
+    }
+
     $method = $sandbox->getParameter('method', 'GET');
+
+    $sandbox->logger()->info(__CLASS__ . ': ' . $method . ' ' . $url);
     $options = $sandbox->getParameter('options', []);
 
     $status_code = $sandbox->getParameter('status_code');
