@@ -1,6 +1,7 @@
 title: "Chrome distrusted Symantec PKI"
 class: \Drutiny\Http\Audit\SslAssertion
 name: SSL:DistrustedSymantecPKI
+severity: high
 description: |
   At the end of July 2018, the Chrome team and PKI community plan to reduce, and
   remove, trust in Symantec’s infrastructure in order to uphold users’ security
