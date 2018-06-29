@@ -2,15 +2,15 @@
 
 namespace Drutiny\Http;
 
+use Drutiny\Container;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\Middleware;
 use Kevinrob\GuzzleCache\CacheMiddleware;
-use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
 use Kevinrob\GuzzleCache\Storage\Psr6CacheStorage;
-use Drutiny\Cache\LocalFsCacheItemPool as Cache;
-use Drutiny\Container;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter as Cache;
 
 class Client extends GuzzleClient {
   public function __construct(array $config = [])
@@ -40,8 +40,7 @@ function cache_middleware()
   if ($middleware) {
     return $middleware;
   }
-  $cache = new Cache('http');
-  $storage = new Psr6CacheStorage($cache);
+  $storage = new Psr6CacheStorage(Container::cache('http'));
   $middleware = new CacheMiddleware(new PrivateCacheStrategy($storage));
   return $middleware;
 }

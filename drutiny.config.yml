@@ -1,0 +1,2 @@
+Cache:
+  http: Symfony\Component\Cache\Adapter\FilesystemAdapter
