@@ -4,7 +4,7 @@
   "description": "Drutiny auditing and policies on HTTP requests",
   "minimum-stability": "dev",
   "require": {
-    "drutiny/drutiny": "2.2.*@dev",
+    "drutiny/drutiny": "2.3.*@dev",
     "kevinrob/guzzle-cache-middleware": "^3.2.1",
     "guzzlehttp/guzzle": "~6.0"
   },
