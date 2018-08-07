@@ -28,7 +28,10 @@ class Client extends GuzzleClient {
 
     // Cache HTTP responses. Add to the bottom so other cache
     // handlers take priority if present.
-    $config['handler']->unshift(cache_middleware(), 'cache');
+    if (!isset($config['cache']) || $config['cache']) {
+      $config['handler']->unshift(cache_middleware(), 'cache');
+    }
+
 
     parent::__construct($config);
   }
