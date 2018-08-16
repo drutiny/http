@@ -11,6 +11,7 @@ use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Storage\Psr6CacheStorage;
 use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter as Cache;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class Client extends GuzzleClient {
   public function __construct(array $config = [])
@@ -19,10 +20,15 @@ class Client extends GuzzleClient {
         $config['handler'] = HandlerStack::create();
     }
 
+    $message_format = __CLASS__ . " HTTP Request\n\n{req_headers}\n\n{res_headers}";
+    if (Container::getVerbosity() <= OutputInterface::VERBOSITY_VERY_VERBOSE) {
+      $message_format = __CLASS__ . " {code} {phrase} {uri} {error}";
+    }
+
     // Logging HTTP Requests.
     $logger = Middleware::log(
         Container::getLogger(),
-        new MessageFormatter(__CLASS__ . " HTTP Request\n\n{req_headers}\n\n{res_headers}")
+        new MessageFormatter($message_format)
     );
     $config['handler']->push($logger);
 
