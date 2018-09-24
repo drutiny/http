@@ -20,6 +20,11 @@ class Client extends GuzzleClient {
         $config['handler'] = HandlerStack::create();
     }
 
+    // Deal with Authorization headers (401 Responses).
+    $config['handler']->push(function (callable $handler) {
+        return new RetryWithAuthMiddleware($handler);
+    });
+
     $message_format = __CLASS__ . " HTTP Request\n\n{req_headers}\n\n{res_headers}";
     if (Container::getVerbosity() <= OutputInterface::VERBOSITY_VERY_VERBOSE) {
       $message_format = __CLASS__ . " {code} {phrase} {uri} {error}";
@@ -27,8 +32,8 @@ class Client extends GuzzleClient {
 
     // Logging HTTP Requests.
     $logger = Middleware::log(
-        Container::getLogger(),
-        new MessageFormatter($message_format)
+      Container::getLogger(),
+      new MessageFormatter($message_format)
     );
     $config['handler']->push($logger);
 
